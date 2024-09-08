@@ -23,7 +23,7 @@ description: >- # used by seo meta and the atom feed
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: ""
+url: "https://alvin-dennis.github.io"
 
 github:
   username: alvin-dennis # change to your GitHub username
@@ -36,10 +36,10 @@ social:
   links:
     # The first element serves as the copyright owner's link
     # - https://www.instagram.com/_a.lvin._/ # change to your Twitter homepage
-    - https://github.com/alvin-dennis # change to your GitHub homepage
+    - https://github.com/alvin-dennis/alvin-dennis.github.io # change to your GitHub homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    - https://www.linkedin.com/in/alvin-dennis-0a70ba163
+    # - https://www.linkedin.com/in/alvin-dennis-0a70ba163
 
 # Site Verification Settings
 webmaster_verifications:
@@ -112,7 +112,7 @@ comments:
     shortname: # fill with the Disqus shortname. › https://help.disqus.com/en/articles/1717111-what-s-a-shortname
   # utterances settings › https://utteranc.es/
   utterances:
-    repo: # <gh-username>/<repo>
+    repo: alvin-dennis/alvin-dennis.github.io
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
