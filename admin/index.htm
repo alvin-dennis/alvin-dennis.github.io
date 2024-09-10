@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h1>Admin Dashboard</h1>
+            <nav>
+                <ul class="sidebar-nav">
+                    <li><a href="#" class="active" onclick="showSection('projects')">Projects</a></li>
+                    <li><a href="#" onclick="showSection('add')">Add Project</a></li>
+                    <li><a href="#" onclick="showSection('update')">Update Project</a></li>
+                    <li><a href="#" onclick="showSection('delete')">Delete Project</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <main class="main-content">
+            <section id="projects" class="card">
+                <h3>Project List</h3>
+                <div id="projectTable">
+                    <p class="loading">Loading projects...</p>
+                </div>
+            </section>
+            <section id="add" class="card" style="display:none;">
+                <h3>Add New Project</h3>
+                <form id="addForm" onsubmit="addProject(event)">
+                    <div class="form-control">
+                        <label for="addName">Project Name:</label>
+                        <input type="text" id="addName" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="addTeamMembers">Team Members (comma-separated):</label>
+                        <input type="text" id="addTeamMembers" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="addFacultyGuide">Faculty Guide:</label>
+                        <input type="text" id="addFacultyGuide" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="addDescription">Description:</label>
+                        <textarea id="addDescription" required></textarea>
+                    </div>
+                    <div class="form-control">
+                        <label for="addStatus">Status:</label>
+                        <input type="text" id="addStatus" required>
+                    </div>
+                    <button type="submit" class="btn">Add Project</button>
+                </form>
+            </section>
+            <section id="update" class="card" style="display:none;">
+                <h3>Update Project</h3>
+                <form id="updateForm" onsubmit="updateProject(event)">
+                    <div class="form-control">
+                        <label for="updateId">Project ID:</label>
+                        <input type="number" id="updateId" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="updateName">New Project Name:</label>
+                        <input type="text" id="updateName" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="updateTeamMembers">New Team Members (comma-separated):</label>
+                        <input type="text" id="updateTeamMembers" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="updateFacultyGuide">New Faculty Guide:</label>
+                        <input type="text" id="updateFacultyGuide" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="updateDescription">New Description:</label>
+                        <textarea id="updateDescription" required></textarea>
+                    </div>
+                    <div class="form-control">
+                        <label for="updateStatus">New Status:</label>
+                        <input type="text" id="updateStatus" required>
+                    </div>
+                    <button type="submit" class="btn">Update Project</button>
+                </form>
+            </section>
+            <section id="delete" class="card" style="display:none;">
+                <h3>Delete Project</h3>
+                <form id="deleteForm" onsubmit="deleteProject(event)">
+                    <div class="form-control">
+                        <label for="deleteId">Project ID:</label>
+                        <input type="number" id="deleteId" required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Delete Project</button>
+                </form>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>&copy; 2024 Alvin Dennis & Akhil B Xavier</p>
+        </footer>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>
