@@ -24,7 +24,7 @@
             <section id="projects" class="card">
                 <h3>Project List</h3>
                 <div id="projectTable">
-                    <p class="loading">Loading projects...</p>
+                    <p class="loading">Fetching projects from the databse...</p>
                 </div>
             </section>
             <section id="add" class="card" style="display:none;">
@@ -43,11 +43,11 @@
                         <input type="text" id="addFacultyGuide" required>
                     </div>
                     <div class="form-control">
-                        <label for="addDescription">Description:</label>
+                        <label for="addDescription">Description of the project:</label>
                         <textarea id="addDescription" required></textarea>
                     </div>
                     <div class="form-control">
-                        <label for="addStatus">Status:</label>
+                        <label for="addStatus">Status of the project:</label>
                         <input type="text" id="addStatus" required>
                     </div>
                     <button type="submit" class="btn">Add Project</button>
@@ -61,23 +61,23 @@
                         <input type="number" id="updateId" required>
                     </div>
                     <div class="form-control">
-                        <label for="updateName">New Project Name:</label>
+                        <label for="updateName">Updated Project Name:</label>
                         <input type="text" id="updateName" required>
                     </div>
                     <div class="form-control">
-                        <label for="updateTeamMembers">New Team Members (comma-separated):</label>
+                        <label for="updateTeamMembers">Updated Team Members (comma-separated):</label>
                         <input type="text" id="updateTeamMembers" required>
                     </div>
                     <div class="form-control">
-                        <label for="updateFacultyGuide">New Faculty Guide:</label>
+                        <label for="updateFacultyGuide">Updated Faculty Guide:</label>
                         <input type="text" id="updateFacultyGuide" required>
                     </div>
                     <div class="form-control">
-                        <label for="updateDescription">New Description:</label>
+                        <label for="updateDescription">Updated Description:</label>
                         <textarea id="updateDescription" required></textarea>
                     </div>
                     <div class="form-control">
-                        <label for="updateStatus">New Status:</label>
+                        <label for="updateStatus">Updated Status:</label>
                         <input type="text" id="updateStatus" required>
                     </div>
                     <button type="submit" class="btn">Update Project</button>
