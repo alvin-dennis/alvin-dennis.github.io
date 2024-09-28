@@ -109,7 +109,7 @@ async function updateProject(e) {
     status: document.getElementById('updateStatus').value,
   };
   try {
-    const response = await fetch(`${API_URL}/projects/update/${id}`, {
+    const response = await fetch(`${API_URL}/project/update/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -128,23 +128,67 @@ async function updateProject(e) {
   }
 }
 
-async function deleteProject(e) {
-  e.preventDefault();
-  const id = document.getElementById('deleteId').value;
-  try {
-    const response = await fetch(`${API_URL}/projects/delete/${id}`, {
-      method: 'DELETE',
-    });
-    if (!response.ok) {
-      throw new Error('Failed to delete project');
+let selectedProjectId = null;
+
+async function filterProjects() {
+    const searchQuery = document.getElementById('searchBar').value;
+    const projectList = document.getElementById('projectList');
+
+    if (searchQuery.trim().length > 0) {
+        try {
+            const response = await fetch(`${API_URL}/project/search/?query=${searchQuery}`);
+            const projects = await response.json();
+            
+            projectList.innerHTML = ''; 
+
+            if (projects.length === 0) {
+                projectList.innerHTML = '<li>No projects found</li>';
+            } else {
+                projects.forEach(project => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = project.name;
+                    listItem.dataset.id = project.id;
+                    listItem.addEventListener('click', () => selectProject(project.id, project.name));
+                    projectList.appendChild(listItem);
+                });
+            }
+        } catch (error) {
+            console.error('Error fetching projects:', error);
+        }
+    } else {
+        projectList.innerHTML = ''; 
     }
-    showNotification('Project deleted successfully', 'success');
-    fetchProjects();
-    e.target.reset();
-  } catch (error) {
-    console.error('Error deleting project:', error);
-    showNotification(`Error deleting project: ${error.message}`, 'error');
-  }
+}
+
+function selectProject(id, name) {
+    document.getElementById('searchBar').value = name;
+    selectedProjectId = id;
+}
+
+async function deleteProject(e) {
+    e.preventDefault();
+
+    if (!selectedProjectId) {
+        alert('Please select a project to delete.');
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/project/delete/${selectedProjectId}`, {
+            method: 'DELETE'
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to delete project.');
+        }
+
+        alert('Project deleted successfully!');
+        filterProjects();
+        selectedProjectId = null; 
+    } catch (error) {
+        console.error('Error deleting project:', error);
+        alert(`Error: ${error.message}`);
+    }
 }
 
 function showNotification(message, type) {

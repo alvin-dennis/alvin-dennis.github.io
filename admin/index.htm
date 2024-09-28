@@ -61,23 +61,23 @@
                         <input type="number" id="updateId" required>
                     </div>
                     <div class="form-control">
-                        <label for="updateName">Updated Project Name:</label>
+                        <label for="updateName">Project Name:</label>
                         <input type="text" id="updateName" required>
                     </div>
                     <div class="form-control">
-                        <label for="updateTeamMembers">Updated Team Members (comma-separated):</label>
+                        <label for="updateTeamMembers">Team Members (comma-separated):</label>
                         <input type="text" id="updateTeamMembers" required>
                     </div>
                     <div class="form-control">
-                        <label for="updateFacultyGuide">Updated Faculty Guide:</label>
+                        <label for="updateFacultyGuide">Faculty Guide:</label>
                         <input type="text" id="updateFacultyGuide" required>
                     </div>
                     <div class="form-control">
-                        <label for="updateDescription">Updated Description:</label>
+                        <label for="updateDescription">Description:</label>
                         <textarea id="updateDescription" required></textarea>
                     </div>
                     <div class="form-control">
-                        <label for="updateStatus">Updated Status:</label>
+                        <label for="updateStatus">Status:</label>
                         <input type="text" id="updateStatus" required>
                     </div>
                     <button type="submit" class="btn">Update Project</button>
@@ -87,9 +87,12 @@
                 <h3>Delete Project</h3>
                 <form id="deleteForm" onsubmit="deleteProject(event)">
                     <div class="form-control">
-                        <label for="deleteId">Project ID:</label>
-                        <input type="number" id="deleteId" required>
+                        <label for="searchBar">Project Name:</label>
+                        <input type="text" id="searchBar" placeholder="Search Project Name" onkeyup="filterProjects()">
                     </div>
+            
+                    <!-- Dynamically populated list of projects -->
+                    <ul id="projectList"></ul>
                     <button type="submit" class="btn btn-secondary">Delete Project</button>
                 </form>
             </section>
