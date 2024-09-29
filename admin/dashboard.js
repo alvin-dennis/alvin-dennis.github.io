@@ -1,4 +1,4 @@
-const API_URL = '';
+const API_URL = config.API_URL;
 
 function showSection(sectionId) {
   document.querySelectorAll('section').forEach((section) => {

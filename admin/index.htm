@@ -6,9 +6,16 @@
     <title>Admin Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
 </head>
 <body>
-    <div class="dashboard">
+    <!--<div id="login-container" class="login-container">
+        <h1>Admin Dashboard Login</h1>
+        <div id="googleSignInButton" class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>-->
+    <div id="dashboard" class="dashboard"> <!--style="display: none;"-->
         <aside class="sidebar">
             <h1>Admin Dashboard</h1>
             <nav>
@@ -90,8 +97,6 @@
                         <label for="searchBar">Project Name:</label>
                         <input type="text" id="searchBar" placeholder="Search Project Name" onkeyup="filterProjects()">
                     </div>
-            
-                    <!-- Dynamically populated list of projects -->
                     <ul id="projectList"></ul>
                     <button type="submit" class="btn btn-secondary">Delete Project</button>
                 </form>
@@ -101,6 +106,7 @@
             <p>&copy; 2024 Alvin Dennis & Akhil B Xavier</p>
         </footer>
     </div>
+    <script src="auth.js"></script>
     <script src="dashboard.js"></script>
 </body>
 </html>

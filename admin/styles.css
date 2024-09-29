@@ -22,6 +22,25 @@ body {
     min-height: 100vh;
 }
 
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-image: url('./assets/pattern.png');
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    color: #f4f4f4;
+}
+
+.g-signin2 {
+    margin-top: 20px;
+}
+
 .dashboard {
     display: flex;
     flex-direction: column;
