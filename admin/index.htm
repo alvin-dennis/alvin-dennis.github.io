@@ -8,7 +8,15 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
+    <script src="config.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const metaTag = document.createElement('meta');
+      metaTag.name = 'google-signin-client_id';
+      metaTag.content = config.GOOGLE_CLIENT_ID;
+      document.head.appendChild(metaTag);
+    });
+    </script>
 </head>
 <body>
     <!--<div id="login-container" class="login-container">
